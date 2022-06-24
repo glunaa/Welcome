@@ -1,7 +1,7 @@
 
 body{
+    
     height: 100vh;
-
 
 }
 .title{
@@ -9,13 +9,21 @@ body{
     justify-content: center;
     align-items: center;
 }
-
 span{
     padding: 10px;
+
     
 }
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 .links{
     
-    height:40vh;
+    text-decoration: none;
     
 }
