@@ -1,3 +1,21 @@
-h1{
-   text-align: center; 
+
+body{
+    height: 100vh;
+
+
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span{
+    padding: 10px;
+    
+}
+.links{
+    
+    height:40vh;
+    
 }
