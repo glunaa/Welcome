@@ -7,3 +7,10 @@
     justify-content: center;
     
   }
+  /* fix form format */
+  form{
+    
+      display: flex;
+      align-items: center;
+      
+  }
