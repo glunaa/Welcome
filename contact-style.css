@@ -1,12 +1,20 @@
 /* keeping the center layout from home */
 .vertical-center {
+    text-align: center;
     min-width: 50vh;  /* Fallback for browsers do NOT support vh unit */
-    min-height: 20vh; /* These two lines are counted as one :-)       */
+    min-width: fit-content; /* These two lines are counted as one :-)       */
     margin: 0;
     display: flex;
     justify-content: center;
     
   }
+
+  .dark-button{
+    align-self: baseline;
+    border: none;
+    background: none;
+}
+
   /* fix form format */
   form{
       margin: 0 auto;

@@ -4,6 +4,11 @@ body{
     height: 100vh;
 
 }
+.dark-button{
+    align-self: baseline;
+    border: none;
+    background: none;
+}
 .title{
     display: flex;
     justify-content: center;
