@@ -18,7 +18,7 @@
         
         <h1 class="vertical-center">Contact Me</h1>
         
-        <form name="contact" class="text-center" method="POST" netlify onsubmit="submit">
+        <form name="contact" id="text-center" class="text-center" method="POST" netlify onsubmit="submit">
             <label for="fullname">Name</label>
             <input name="name" type="text" placeholder="Full Name">
 
@@ -26,7 +26,7 @@
             <input name="email" type="email" placeholder="johndoe@example.com">
 
             <label for="message">Message</label>
-            <textarea name ="message" rows="5" cols="25" placeholder="All inquiries accepted." ></textarea>
+            <textarea form="text-center" name ="message" rows="5" cols="25" placeholder="All inquiries accepted." ></textarea>
 
             <input type="submit" value="submit">
         
