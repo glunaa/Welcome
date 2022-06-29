@@ -18,12 +18,12 @@
         
         <h1 class="vertical-center">Contact Me</h1>
         
-        <form class="text-center" method="post" netlify>
+        <form name="contact" class="text-center" method="POST" netlify onsubmit="submit">
             <label for="fullname">Name</label>
-            <input type="text" placeholder="Full Name">
+            <input name="name" type="text" placeholder="Full Name">
 
             <label for="email">Email</label>
-            <input type="email" placeholder="johndoe@example.com">
+            <input name="email" type="email" placeholder="johndoe@example.com">
 
             <label for="message">Message</label>
             <textarea rows="5" cols="25" ></textarea>
