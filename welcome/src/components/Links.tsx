@@ -1,11 +1,13 @@
-import React from "react";
+import React,{FC} from "react";
 
-const Links = () => {
+interface Props{
+    github?: string;
+}
+const Links:FC<Props> = ({github}) => {
     return(
         <div>
             <ul>
-             <li><a href='https://github.com/'>Github</a></li>
-             <li></li>
+             <li><a href='https://github.com/glunaa'>Github</a></li>
             </ul>
         </div>
     )

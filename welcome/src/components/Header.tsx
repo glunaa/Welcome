@@ -1,10 +1,14 @@
-import React from "react";
+import React,{FC} from "react";
 
-const Header = () => {
+interface Props{
+    header:string;
+    position: string;
+}
+const Header:FC<Props> = ({header,position}) => {
     return(
         <div>
-        <h1>Giovanni Luna</h1>
-        <h2>Front-end Developer</h2>
+        <h1>{header}</h1>
+        <h2>{position}</h2>
         </div>
     );
 }
