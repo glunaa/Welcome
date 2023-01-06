@@ -1,5 +1,5 @@
 # Welcome
-## Hello Everyone 
+## Landing Page
 Feel free to look around.
 All feedback is of course, Welcome.
 
