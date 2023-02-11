@@ -1,6 +1,13 @@
+
 .App {
+  /*border: black 1px solid;*/
   text-align: center;
   background-color: white;
+  max-height: 100vh;
+  display:grid;
+  align-items: center;
+  gap:10%;
+
   
 }
 li{
@@ -10,3 +17,4 @@ li{
 li a{
   text-decoration: none;
 }
+

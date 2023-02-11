@@ -1,9 +1,9 @@
 import React,{FC} from "react";
 
 interface Props{
-    github?: string;
+    link?: string;
 }
-const Links:FC<Props> = ({github}) => {
+const Links:FC<Props> = ({link}) => {
     return(
         <div>
             <ul>
