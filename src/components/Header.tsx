@@ -1,16 +1,17 @@
-import React,{FC} from "react";
+import React, { FC } from 'react';
 
-interface Props{
-    header:string;
-    position: string;
+interface HeaderProps {
+  name: string;
+  position: string;
 }
-const Header:FC<Props> = ({header,position}) => {
-    return(
-        <div>
-        <h1>{header}</h1>
-        <h2>{position}</h2>
-        </div>
-    );
-}
+
+const Header: FC<HeaderProps> = ({ name, position }) => {
+  return (
+    <header className="text-center mb-4 header">
+      <h1 className="fw-bold">{name}</h1>
+      <p className="text-muted">{position}</p>
+    </header>
+  );
+};
+
 export default Header;
-

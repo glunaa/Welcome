@@ -1,13 +1,20 @@
+body{
+  background-color: #f8f9fa; 
+  margin: 0;
+  padding: 0;
 
+}
 .App {
   /*border: black 1px solid;*/
+  
   text-align: center;
-  background-color: white;
-  max-height: 100vh;
-  display:grid;
+  font-size: x-large;
+  color: #343a40;
+  min-height: 100vh;
+  display:flex;
+  flex-direction: column;
   align-items: center;
-  gap:10%;
-
+  justify-content: center ;
   
 }
 li{
@@ -17,4 +24,23 @@ li{
 li a{
   text-decoration: none;
 }
+.header {
+  margin-bottom: 1rem;
+}
 
+.links {
+
+  margin-bottom: 1rem;
+}
+.footer{
+  margin-top: auto;
+}
+@media (max-width: 600px) {
+  .header {
+    margin-bottom: 0.5rem; /* Adjust spacing for smaller screens */
+  }
+
+  .links {
+    margin-top: 0.5rem; /* Adjust spacing for smaller screens */
+  }
+}

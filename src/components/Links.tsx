@@ -1,15 +1,18 @@
-import React,{FC} from "react";
+import React, { FC } from 'react';
 
-interface Props{
-    link?: string;
+interface LinksProps {
+  url: string;
+  label: string;
 }
-const Links:FC<Props> = ({link}) => {
-    return(
-        <div>
-            <ul>
-             <li><a href='https://github.com/glunaa'>Github</a></li>
-            </ul>
-        </div>
-    )
-}
+
+const Links: FC<LinksProps> = ({ url, label }) => {
+  return (
+    <div className="text-center links">
+      <a href={url} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+        {label}
+      </a>
+    </div>
+  );
+};
+
 export default Links;
