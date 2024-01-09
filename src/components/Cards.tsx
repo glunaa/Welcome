@@ -8,7 +8,8 @@ interface CardProps {
 
 const Cards: FC<CardProps> = ({title, body}) => {
     return(
-        <div className='card'> {title}
+        <div className='card'> 
+            <div className='card-title'>{title}</div>
             <div className='card-body'>{body}</div>
         </div>
     );

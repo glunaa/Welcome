@@ -1,69 +1,84 @@
-body{
-    background-color: #f8f9fa; 
-    margin: 0;
-    padding: 0;
-  
-  }
-  .App {
-    /*border: black 1px solid;*/
-    
-    text-align: center;
-    font-size: x-large;
-    color: #343a40;
+body {
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+.main-container{
     min-height: 100vh;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center ;
-    
-  }
-  li{
-    text-decoration: none;
-    list-style: none;
-  }
-  li a{
-    text-decoration: none;
-  }
-  .header {
-    margin-bottom: 1rem;
-  }
-  
-  .links {
-  
-    margin-bottom: 1rem;
-  }
-  .footer{
-    margin-top: auto;
-  }
-  .icon{
-    animation: spin 6s infinite linear;
-  }
-  .card-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+}
+main {
+  border-bottom: 0px;
+}
+.App {
+  /*border: black 1px solid;*/
+
+  text-align: center;
+  font-size: x-large;
+  color: #343a40;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+li {
+  text-decoration: none;
+  list-style: none;
+}
+li a {
+  text-decoration: none;
+}
+.header {
+  margin-bottom: 1rem;
+}
+
+.links {
+  margin-bottom: 1rem;
+}
+.footer {
+  margin-top: auto;
+  padding-top: 0;
+}
+.icon {
+  animation: spin 6s infinite linear;
+  color: skyblue;
+}
+.card-container {
+  display: flex;
+  justify-content: space-between;
+}
+.card {
+  flex: 0 0 calc(33.33% - 1rem); /* Adjust the width based on your design */
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column; /* Make the card's children stack vertically */
+  align-items: center; /* Center items horizontally within the card */
+}
+/* Additional styling for cards */
+.card-body {
+  padding: 1rem;
+  border: 1px solid #ddd; /* Add border for better visibility */
+  border-radius: 8px; /* Add border-radius for rounded corners */
+  margin-top: 0.5rem;
+}
+
+@keyframes spin {
+  from {
+    transform: scale(1) rotate(0deg);
   }
-  
-  /* Additional styling for cards */
-  .card-body {
-    padding: 1rem;
-    border: 1px solid #ddd; /* Add border for better visibility */
-    border-radius: 8px; /* Add border-radius for rounded corners */
+  to {
+    transform: scale(1) rotate(360deg);
   }
-  
-  @keyframes spin {
-    from {
-        transform: scale(1) rotate(0deg);
-    }
-    to {
-        transform: scale(1) rotate(360deg);
-    }
+}
+@media (max-width: 600px) {
+  .header {
+    margin-bottom: 0.5rem; /* Adjust spacing for smaller screens */
   }
-  @media (max-width: 600px) {
-    .header {
-      margin-bottom: 0.5rem; /* Adjust spacing for smaller screens */
-    }
-  
-    .links {
-      margin-top: 0.5rem; /* Adjust spacing for smaller screens */
-    }
+
+  .links {
+    margin-top: 0.5rem; /* Adjust spacing for smaller screens */
   }
+}
