@@ -1,4 +1,7 @@
 import { FaReact } from "react-icons/fa";
+import { GoStack } from "react-icons/go";
+import { GoTools } from "react-icons/go";
+import { SiVisualstudio } from "react-icons/si";
 import React, { FC } from 'react';
 import Header from './components/Header';
 import Links from './components/Links';
@@ -14,8 +17,8 @@ const App: FC = () => {
       <Header name="Giovanni Luna" position="Front End Developer" />
       <p>I build user interfaces using React <FaReact className="icon" /></p>
         <div className="card-container">
-          <Cards title="Tech Stack" body="React.js TypeScript CSS Javascript HTML5"/>
-          <Cards title="Developer Tools"body="Visual Studio Code Git Github"/>
+          <Cards title="Tech Stack" titleIcon=<GoStack /> bodyIcon=<FaReact className="icon"/> body="React.js TypeScript CSS Javascript HTML5"/>
+          <Cards title="Developer Tools" titleIcon=<GoTools /> bodyIcon=<SiVisualstudio className="vs-icon"/> body="Visual Studio Code Git Github"/>
         </div>
       <Links url="https://github.com/glunaa" label="Check out my GitHub" />
     </main>

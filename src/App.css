@@ -46,6 +46,9 @@ li a {
   animation: spin 6s infinite linear;
   color: skyblue;
 }
+.vs-icon{
+    color: rgb(6, 126, 239);
+}
 .card-container {
   display: flex;
   justify-content: space-between;
