@@ -2,6 +2,8 @@ import { FaReact } from "react-icons/fa";
 import { GoStack } from "react-icons/go";
 import { GoTools } from "react-icons/go";
 import { SiVisualstudio } from "react-icons/si";
+import { BsGithub } from "react-icons/bs";
+import { FaLinkedin } from "react-icons/fa";
 import React, { FC } from 'react';
 import Header from './components/Header';
 import Links from './components/Links';
@@ -20,8 +22,11 @@ const App: FC = () => {
           <Cards title="Tech Stack" titleIcon=<GoStack /> bodyIcon=<FaReact className="icon"/> body="React.js TypeScript CSS Javascript HTML5"/>
           <Cards title="Developer Tools" titleIcon=<GoTools /> bodyIcon=<SiVisualstudio className="vs-icon"/> body="Visual Studio Code Git Github"/>
         </div>
-      <Links url="https://github.com/glunaa" label="Check out my GitHub" />
-    </main>
+        <div className="links-container">
+          <Links url="https://github.com/glunaa"icon=<BsGithub />/>
+          <Links url="www.linkedin.com/in/giovanni-luna-b85521255" icon=<FaLinkedin/>/>
+        </div>
+ </main>
     <Footer/>
     </div>
   );
