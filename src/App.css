@@ -1,21 +1,26 @@
 body {
+  overflow-y: auto;
   background-color: black;
-  color: white;
+  color: #ddd;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 .main-container{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    z-index: 1;
+    position: relative;
+    padding-top: 80px;
+    overflow-y: auto;
 }
 main {
   border-bottom: 0px;
 }
 .App {
   /*border: black 1px solid;*/
-
+  overflow-y: auto;
   text-align: center;
   font-size: x-large;
   min-height: 100vh;
@@ -31,12 +36,22 @@ li {
 li a {
   text-decoration: none;
 }
-.header {
-  margin-bottom: 1rem;
+.header-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  height: 50px;
+}
+.header{
+  display: block;
+  margin: auto;
 }
 
 .links-container{
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
 }
 .links {
@@ -74,7 +89,17 @@ li a {
   border-radius: 8px; /* Add border-radius for rounded corners */
   margin-top: 0.5rem;
 }
-
+.about-container{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.about-section{
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+ 
+}
 @keyframes spin {
   from {
     transform: scale(1) rotate(0deg);
@@ -83,17 +108,34 @@ li a {
     transform: scale(1) rotate(360deg);
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 768px){
+  .intro{
+    padding-top: 60px;
+  }
+    .card-container{
+      padding-top: 80px;
+    }
     .card {
       flex: 0 0 calc(50% - 1rem); /* Full width for one card per row on smaller screens */
     }
-  }
-@media (max-width: 600px) {
-  .header {
-    margin-bottom: 0.5rem; /* Adjust spacing for smaller screens */
+    .about-section {
+      max-width: 100%; /* Allow the text to take the full width on smaller screens */
+    }
+  
+    .links-container {
+      flex-direction: row; /* Stack links vertically on smaller screens */
+      align-items: center; /* Center links horizontally on smaller screens */
+    }
+    .header-container {
+      margin-bottom: 0.5rem;
+    }
+  
+    .header {
+      margin-bottom: 0.5rem; /* Adjust spacing for smaller screens */
+    }
+  
+    .links {
+      margin-top: 0.5rem; /* Adjust spacing for smaller screens */
+    }
   }
 
-  .links {
-    margin-top: 0.5rem; /* Adjust spacing for smaller screens */
-  }
-}
