@@ -1,7 +1,5 @@
-# Welcome
-## Landing Page
-Feel free to look around.
-All feedback is of course, Welcome.
+# Portfolio Site
+## Made with Typescript, React, and some CSS
 ### Just another static site
 
 https://giovannilunaportfolio.netlify.app/
