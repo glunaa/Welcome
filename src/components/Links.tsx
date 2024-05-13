@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 interface LinksProps {
   url: string;
   icon: React.ReactNode;
+  className?: string;
 }
 
 const Links: FC<LinksProps> = ({ url,icon }) => {

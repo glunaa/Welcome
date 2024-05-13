@@ -6,28 +6,40 @@ body {
   padding: 0;
 }
 .intro {
+  font-size: 24px;
   text-align: center;
+}
+.custom-height{
+  height: 80vh;
 }
 Header {
   padding: auto;
   display: block;
   margin: auto;
 }
-
+.title{
+  font-size: 22px;
+}
 .links-container {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
 }
+.links-container .icon {
+  font-size: 24px; /* Adjust as needed */
+}
 .links {
+  font-size: 1.5em;
   margin-bottom: 1rem;
 }
 .footer {
+  font-size: 18px;
   margin-top: auto;
   padding-top: 0;
 }
 .icon {
+  font-size: 1.7em;
   animation: spin 6s infinite linear;
   color: skyblue;
 }
