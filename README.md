@@ -1,8 +1,8 @@
-🧑‍💻 #Personal Portfolio Website
+## 🧑‍💻 Personal Portfolio Website
 
 A modern, responsive portfolio website built with React and TypeScript to showcase my projects, skills, and experience.
 
-##🚀 Features
+## 🚀 Features
 
 • ⚡ Fast and responsive design
 • 🎨 Styled with CSS Modules / Tailwind / Styled Components (customize based on your setup)
@@ -12,7 +12,7 @@ A modern, responsive portfolio website built with React and TypeScript to showca
 • 🛠️ Type-safe codebase using TypeScript
 
 
-##📁 Project Structure
+## 📁 Project Structure
 
 src/
 ├── assets/         # Images, icons, and other static assets
@@ -25,7 +25,7 @@ src/
 └── main.tsx        # Entry point
 
 
-##🛠️ Tech Stack
+## 🛠️ Tech Stack
 
 • React (with Hooks)
 • TypeScript
@@ -35,7 +35,7 @@ src/
 • EmailJS or Formspree (for contact form)
 
 
-##📦 Installation
+## 📦 Installation
 
 # Clone the repo
 git clone https://github.com/your-username/portfolio.git
@@ -50,10 +50,10 @@ npm install
 npm run dev
 
 
-##🖼️ Live Demo
+## 🖼️ Live Demo
 
 Check out the live site here: your-portfolio-link.com
 
-##📬 Contact
+## 📬 Contact
 
 Feel free to reach out via LinkedIn or Email
