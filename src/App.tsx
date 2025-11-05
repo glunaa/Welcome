@@ -24,7 +24,8 @@ const App: FC = () => {
         <Header name="Giovanni Luna" position="Front End Developer" />
 
         <p className="intro">
-          I build user interfaces using React <FaReact className="icon" />
+          <span className="typing">I build user interfaces using React</span>{' '}
+          <FaReact className="icon" />
         </p>
 
         <div className="links-container d-flex justify-content-center">

@@ -427,3 +427,38 @@ Header {
   color: #61dafb;
   margin-left: 0.4rem;
 }
+.typing {
+  display: inline-block;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.12em solid #61dafb; /* caret color */
+  width: 0;
+  /* 35 steps matches the character count of the string "I build user interfaces using React" */
+  animation: typing 3s steps(35, end) forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 35ch;
+  }
+}
+
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .typing {
+    animation: none;
+    width: auto;
+    border-right: none;
+  }
+}
