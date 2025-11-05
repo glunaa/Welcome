@@ -1,4 +1,4 @@
-## 🧑‍💻 Personal Portfolio Website
+# 🧑‍💻 Personal Portfolio Website
 
 A modern, responsive portfolio website built with React and TypeScript to showcase my projects, skills, and experience.
 
