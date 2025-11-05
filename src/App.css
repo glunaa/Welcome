@@ -4,27 +4,57 @@ body {
   color: #ddd;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 .intro {
   font-size: 24px;
-  text-align: center;
+  text-align: center; /* Center text */
+  margin: 1rem auto; /* Reduce margin to 1rem top and bottom */
+  padding: 0;
+  height: auto; /* Remove fixed height */
 }
-.custom-height{
-  height: 80vh;
+.custom-height {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  background-color: black; /* Black background */
+  color: #ddd; /* Text color */
+  text-align: center; /* Center text */
+  padding: 0;
+  margin: 0;
+}
+header,
+.intro {
+  margin: 0; /* Remove default margin */
+  padding: 0;
 }
 Header {
-  padding: auto;
+  padding: 0; /* Remove auto padding */
   display: block;
-  margin: auto;
+  margin: 0 auto; /* Keep horizontal center, remove vertical margin */
+  height: auto; /* Remove fixed height */
 }
-.title{
+.header h1:hover {
+  color: #007bff; /* Change color on hover */
+  transition: color 0.3s ease;
+}
+
+.header p:hover {
+  color: #ddd; /* Lighter color on hover */
+  transition: color 0.3s ease;
+}
+
+.title {
   font-size: 22px;
 }
 .links-container {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center horizontally */
   align-items: center;
   gap: 1rem;
+  margin-top: 2rem; /* Add some space above the links */
 }
 .links-container .icon {
   font-size: 24px; /* Adjust as needed */
@@ -34,14 +64,162 @@ Header {
   margin-bottom: 1rem;
 }
 .footer {
-  font-size: 18px;
-  margin-top: auto;
+  font-size: 22px;
+  margin-top: 2rem;
   padding-top: 0;
 }
+.footer svg {
+  transition: transform 0.3s ease;
+}
+
+.footer svg:hover {
+  transform: scale(1.2); /* Slightly grow on hover */
+}
+
 .icon {
   font-size: 1.7em;
-  animation: spin 6s infinite linear;
+  animation: spin 4s infinite linear;
   color: skyblue;
+}
+icon:hover {
+  transform: scale(1.2); /* Slightly enlarge on hover */
+  color: lightblue; /* Change color on hover */
+  transition: transform 0.2s, color 0.2s;
+}
+/* Projects Section Styles */
+.projects-section {
+  min-height: 100vh; /* Changed from height to min-height for better content flow */
+  background-color: #282c34; /* Dark background color for contrast */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0; /* Added padding for better spacing */
+  margin: 0; /* Ensure no gap between sections */
+}
+
+.projects-title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: skyblue;
+  text-align: center;
+}
+
+.project-card {
+  background-color: #444; /* Dark background for the cards */
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%; /* Ensure all cards have same height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card:hover {
+  transform: translateY(-8px); /* Lift effect */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  background-color: #4a4a4a;
+}
+
+.project-card h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: skyblue;
+}
+
+.project-card p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.project-card a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  margin-top: auto; /* Pushes button to bottom */
+  color: skyblue;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid skyblue;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.project-card a:hover {
+  background-color: skyblue;
+  color: #282c34;
+  text-decoration: none;
+}
+
+/* Mobile Friendly Adjustments */
+@media (max-width: 767px) {
+  .projects-section {
+    padding: 3rem 1rem;
+  }
+
+  .projects-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .project-card p {
+    font-size: 1rem;
+  }
+
+  .project-card a {
+    padding: 0.5rem 1.25rem;
+  }
+
+  .row {
+    margin: 0; /* Remove default row margins on mobile */
+  }
+}
+
+/* Tablet Adjustments */
+@media (min-width: 768px) and (max-width: 991px) {
+  .project-card {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Update the Header styles */
+Header {
+  padding: 0; /* Remove auto padding */
+  display: block;
+  margin: 0 auto; /* Keep horizontal center, remove vertical margin */
+  height: auto; /* Remove fixed height */
+}
+
+/* Update the intro spacing */
+.intro {
+  font-size: 24px;
+  text-align: center;
+  margin: 1rem auto; /* Reduce margin to 1rem top and bottom */
+  padding: 0;
+  height: auto; /* Remove fixed height */
+}
+
+/* Add spacing control to the links container */
+.links-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem; /* Add some space above the links */
 }
 
 @keyframes spin {
@@ -51,4 +229,201 @@ Header {
   to {
     transform: scale(1) rotate(360deg);
   }
+}
+
+/* Skills Section */
+.skills-section {
+  background-color: #1a1a1a;
+  padding: 4rem 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  width: 80%;
+  max-width: 1200px;
+}
+
+.skill-item {
+  background: #333;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+}
+
+/* About Section */
+.about-section {
+  background-color: #282c34;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* center block vertically */
+  color: #e6e6e6;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+}
+
+/* container that constrains width and controls layout */
+.about-content {
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* the readable paragraph/card style */
+.about-text {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.75rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  color: #ddd;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+  text-align: left;
+}
+
+/* ensure paragraphs have nice spacing */
+.about-text p {
+  margin: 0 0 1rem 0;
+}
+
+/* heading style inside about section */
+.about-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: skyblue;
+  text-align: center;
+}
+
+/* mobile adjustments */
+@media (max-width: 767px) {
+  .about-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .about-text {
+    font-size: 1rem; /* 16px */
+    line-height: 1.6;
+    padding: 1rem;
+    text-align: center;
+  }
+}
+
+/* Contact Form */
+.contact-section {
+  background-color: #1a1a1a;
+  padding: 2rem 1.25rem; /* smaller vertical padding */
+  min-height: 40vh; /* reduce height (adjust to taste) */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* center form vertically inside section */
+  align-items: center;
+  margin: 0;
+}
+
+/* keep form compact and responsive */
+.contact-form {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #282828;
+  color: #eee;
+}
+
+/* smaller textarea height */
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* tighter layout on phones */
+@media (max-width: 767px) {
+  .contact-section {
+    padding: 1.25rem 1rem;
+    min-height: auto; /* let content determine height on small screens */
+  }
+
+  .contact-form textarea {
+    min-height: 100px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* icon base */
+.skill-icon {
+  width: 1.25em;
+  height: 1.25em;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  display: inline-block;
+  color: currentColor; /* fallback */
+}
+
+/* individual colors */
+.skill-icon.react {
+  color: #61dafb;
+} /* React */
+.skill-icon.ts {
+  color: #3178c6;
+} /* TypeScript */
+.skill-icon.css {
+  color: #264de4;
+} /* CSS3 */
+.skill-icon.csharp {
+  color: #68217a;
+} /* C# */
+.skill-icon.cpp {
+  color: #00599c;
+} /* C++ */
+.skill-icon.java {
+  color: #007396;
+} /* Java (Devicons) */
+.skill-icon.python {
+  color: #3776ab;
+} /* Python */
+.skill-icon.git {
+  color: #f1502f;
+} /* Git */
+
+/* color the small FaReact in the intro */
+.intro .icon {
+  color: #61dafb;
+  margin-left: 0.4rem;
 }
