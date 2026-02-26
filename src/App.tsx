@@ -96,7 +96,7 @@ const App: FC = () => {
       {/* ── Nav ────────────────────────────────────────── */}
       <nav className={`gl-nav ${navVisible ? 'gl-nav--visible' : ''}`}>
         <div className="gl-nav__inner">
-          <a href="#" className="gl-nav__logo">GL</a>
+          <a href="#root" className="gl-nav__logo">GL</a>
           <ul className="gl-nav__links">
             {NAV_LINKS.map(({ label, href }) => (
               <li key={label}>
