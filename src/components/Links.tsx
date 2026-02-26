@@ -6,10 +6,10 @@ interface LinksProps {
   className?: string;
 }
 
-const Links: FC<LinksProps> = ({ url,icon }) => {
+const Links: FC<LinksProps> = ({ url, icon }) => {
   return (
     <div className="text-center links">
-      <a href={url} className="btn btn-dark btn-lg" target="_blank" rel="noopener noreferrer">
+      <a href={url} className="btn" target="_blank" rel="noopener noreferrer">
         {icon}
       </a>
     </div>
