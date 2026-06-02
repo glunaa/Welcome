@@ -814,3 +814,114 @@ section {
   transform: none;
   box-shadow: none;
 }
+
+/* ── Ambient hero orbs ────────────────────────────────── */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-orb--1 {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(79,195,247,0.07) 0%, transparent 70%);
+  top: 18%;
+  left: 10%;
+  animation: orb-float 9s ease-in-out infinite;
+}
+
+.hero-orb--2 {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(79,195,247,0.05) 0%, transparent 70%);
+  bottom: 22%;
+  right: 10%;
+  animation: orb-float 12s ease-in-out infinite 3s;
+}
+
+@keyframes orb-float {
+  0%, 100% { transform: translateY(0)     translateX(0);    }
+  33%       { transform: translateY(-18px) translateX(12px); }
+  66%       { transform: translateY(12px)  translateX(-8px); }
+}
+
+/* ── Hero glow breathes ───────────────────────────────── */
+.custom-height::after {
+  animation: glow-breathe 5s ease-in-out infinite;
+}
+
+@keyframes glow-breathe {
+  0%, 100% { opacity: 1;   transform: translate(-50%, -50%) scale(1);   }
+  50%       { opacity: 0.5; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/* ── Staggered project card reveals ──────────────────── */
+.projects-grid .project-card:nth-child(1) { transition-delay: 0.05s; }
+.projects-grid .project-card:nth-child(2) { transition-delay: 0.12s; }
+.projects-grid .project-card:nth-child(3) { transition-delay: 0.19s; }
+.projects-grid .project-card:nth-child(4) { transition-delay: 0.26s; }
+.projects-grid .project-card:nth-child(5) { transition-delay: 0.33s; }
+
+/* ── Staggered skill category reveals ────────────────── */
+.skills-container .skill-category:nth-child(1) { transition-delay: 0.05s; }
+.skills-container .skill-category:nth-child(2) { transition-delay: 0.15s; }
+.skills-container .skill-category:nth-child(3) { transition-delay: 0.25s; }
+
+/* ── Project card accent inner glow on hover ─────────── */
+.project-card:hover {
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4),
+              0 0 40px rgba(79,195,247,0.04),
+              inset 0 1px 0 rgba(79,195,247,0.1);
+}
+
+/* ── Skill icon scale on hover ───────────────────────── */
+.skill-item:hover .skill-icon {
+  transform: scale(1.2);
+  transition: transform var(--transition);
+}
+
+/* ── Meta item hover slide ───────────────────────────── */
+.meta-item {
+  transition: background var(--transition), transform var(--transition);
+}
+
+.meta-item:hover {
+  background: rgba(79,195,247,0.04);
+  transform: translateX(4px);
+}
+
+/* ── Section label letter-spacing compress on reveal ─── */
+.section-label.reveal {
+  letter-spacing: 0.28em;
+  transition: opacity 0.6s ease, transform 0.6s ease, letter-spacing 0.8s ease;
+}
+
+.section-label.reveal.visible {
+  letter-spacing: 0.18em;
+}
+
+/* ── Submit button ambient pulse ─────────────────────── */
+.contact-form button[type='submit']:not(:disabled) {
+  animation: btn-pulse 3s ease-in-out infinite;
+}
+
+.contact-form button[type='submit']:not(:disabled):hover,
+.contact-form button[type='submit']:not(:disabled):focus {
+  animation: none;
+}
+
+@keyframes btn-pulse {
+  0%, 100% { box-shadow: none; }
+  50%       { box-shadow: 0 0 0 6px rgba(79,195,247,0.12); }
+}
+
+/* ── Reduced motion overrides ────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb,
+  .custom-height::after { animation: none; }
+  .contact-form button[type='submit']:not(:disabled) { animation: none; }
+  .section-label.reveal { letter-spacing: 0.18em; transition: opacity 0.6s ease, transform 0.6s ease; }
+}

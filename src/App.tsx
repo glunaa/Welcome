@@ -115,6 +115,8 @@ const App: FC = () => {
 
       {/* ── Hero ───────────────────────────────────────── */}
       <main className="container-fluid d-flex flex-column justify-content-center align-items-center custom-height">
+        <div className="hero-orb hero-orb--1" aria-hidden="true" />
+        <div className="hero-orb hero-orb--2" aria-hidden="true" />
         <Header name="Giovanni Luna" position="Software & Network Engineer" />
 
         <p className="intro">
