@@ -1,28 +1,27 @@
-# 🧑‍💻 Personal Portfolio Website
+# Personal Portfolio Website
 
 A modern, responsive portfolio website built with React and TypeScript to showcase my projects, skills, and experience.
 
-## 🚀 Features
+## Live Demo
 
-• ⚡ Fast and responsive design
-• 🎨 Styled with CSS Modules / Bootstrap / Styled Components (customize based on your setup)
-• 🌐 SEO optimized with meta tags
-• 📱 Mobile-first layout
-• 🧩 Modular and reusable components
-• 🛠️ Type-safe codebase using TypeScript
+https://giovannilunaportfolio.netlify.app
 
-## 🛠️ Tech Stack
+## Projects
 
-• React (with Hooks)
-• TypeScript
-• Create React App
-• Bootstrap / CSS / Styled Components
+| Project | Link |
+|---|---|
+| Welcome (this site) | [GitHub](https://github.com/glunaa/Welcome) |
+| Catholic Verses | [catholicverses.netlify.app](https://catholicverses.netlify.app/) |
+| NetCert Prep | [netcertprep.netlify.app](https://netcertprep.netlify.app/) |
+| Networking Showcase | [GitHub](https://github.com/glunaa/Networking-Showcase) |
+| AWS Solutions | [GitHub](https://github.com/glunaa/AWS-Solutions) |
 
+## Tech Stack
 
-## 🖼️ Live Demo
+- React (with Hooks)
+- TypeScript
+- Bootstrap / CSS
 
-Check out the live site here: https://giovannilunaportfolio.netlify.app
+## Contact
 
-## 📬 Contact
-
-Feel free to reach out via LinkedIn or Email
+Feel free to reach out via [LinkedIn](https://linkedin.com/in/giovanni-luna-b85521255) or the contact form on the site.
