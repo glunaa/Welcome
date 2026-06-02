@@ -152,15 +152,15 @@ const App: FC = () => {
             </div>
 
             <div className="project-card reveal">
-              <h3>Fitness Tracker</h3>
-              <p>A Python-based fitness tracking application that helps users monitor their workouts and maintain their fitness goals.</p>
-              <a href="https://github.com/glunaa/fitnesstracker">View on GitHub</a>
+              <h3>Catholic Verses</h3>
+              <p>A web app for exploring and reflecting on Catholic scripture verses, built to make daily prayer and Bible reading more accessible.</p>
+              <a href="https://catholicverses.netlify.app/" target="_blank" rel="noopener noreferrer">Visit Site</a>
             </div>
 
             <div className="project-card reveal">
-              <h3>Todo</h3>
-              <p>A simple and intuitive todo list application built with React, helping users manage their daily tasks effectively.</p>
-              <a href="https://github.com/glunaa/todo">View on GitHub</a>
+              <h3>NetCert Prep</h3>
+              <p>A study tool for networking certification prep, covering key concepts, subnetting, and practice questions for CompTIA Network+ and CCNA.</p>
+              <a href="https://netcertprep.netlify.app/" target="_blank" rel="noopener noreferrer">Visit Site</a>
             </div>
 
             <div className="project-card reveal">
