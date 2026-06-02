@@ -815,6 +815,14 @@ section {
   box-shadow: none;
 }
 
+/* ── Parallax wrapper ─────────────────────────────────── */
+.hero-parallax {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
 /* ── Ambient hero orbs ────────────────────────────────── */
 .hero-orb {
   position: absolute;
@@ -920,6 +928,7 @@ section {
 
 /* ── Reduced motion overrides ────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+  .hero-parallax { display: none; }
   .hero-orb,
   .custom-height::after { animation: none; }
   .contact-form button[type='submit']:not(:disabled) { animation: none; }

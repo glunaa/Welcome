@@ -31,13 +31,52 @@ const App: FC = () => {
   const [activeSection, setActiveSection] = useState('');
   const [navVisible, setNavVisible]       = useState(false);
   const [formStatus, setFormStatus]       = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-  const formRef = useRef<HTMLFormElement>(null);
+  const formRef      = useRef<HTMLFormElement>(null);
+  const parallaxRef  = useRef<HTMLDivElement>(null);
+  const targetParallax  = useRef({ x: 0, y: 0 });
+  const currentParallax = useRef({ x: 0, y: 0 });
+  const rafRef       = useRef<number>();
 
   // Show nav after hero scrolled past
   useEffect(() => {
     const onScroll = () => setNavVisible(window.scrollY > 80);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Parallax: mouse on desktop, gyroscope on mobile
+  useEffect(() => {
+    const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+
+    const tick = () => {
+      currentParallax.current.x = lerp(currentParallax.current.x, targetParallax.current.x, 0.07);
+      currentParallax.current.y = lerp(currentParallax.current.y, targetParallax.current.y, 0.07);
+      if (parallaxRef.current) {
+        parallaxRef.current.style.transform =
+          `translate(${currentParallax.current.x}px, ${currentParallax.current.y}px)`;
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+
+    const onMouse = (e: MouseEvent) => {
+      targetParallax.current.x = (e.clientX / window.innerWidth  - 0.5) * 36;
+      targetParallax.current.y = (e.clientY / window.innerHeight - 0.5) * 24;
+    };
+
+    const onTilt = (e: DeviceOrientationEvent) => {
+      targetParallax.current.x = ((e.gamma ?? 0) / 45) * 24;
+      targetParallax.current.y = (((e.beta  ?? 45) - 45) / 45) * 16;
+    };
+
+    window.addEventListener('mousemove',        onMouse, { passive: true });
+    window.addEventListener('deviceorientation', onTilt,  { passive: true });
+
+    return () => {
+      window.removeEventListener('mousemove',        onMouse);
+      window.removeEventListener('deviceorientation', onTilt);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   // Active section tracker
@@ -115,8 +154,10 @@ const App: FC = () => {
 
       {/* ── Hero ───────────────────────────────────────── */}
       <main className="container-fluid d-flex flex-column justify-content-center align-items-center custom-height">
-        <div className="hero-orb hero-orb--1" aria-hidden="true" />
-        <div className="hero-orb hero-orb--2" aria-hidden="true" />
+        <div className="hero-parallax" ref={parallaxRef} aria-hidden="true">
+          <div className="hero-orb hero-orb--1" />
+          <div className="hero-orb hero-orb--2" />
+        </div>
         <Header name="Giovanni Luna" position="Software & Network Engineer" />
 
         <p className="intro">
