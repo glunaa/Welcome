@@ -16,6 +16,93 @@ import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+// ── Particle canvas ──────────────────────────────────────
+const ParticleCanvas: FC = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let mouseX = -999, mouseY = -999;
+
+    const resize = () => {
+      canvas.width  = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    const onMouse = (e: MouseEvent) => {
+      const r = canvas.getBoundingClientRect();
+      mouseX = e.clientX - r.left;
+      mouseY = e.clientY - r.top;
+    };
+    window.addEventListener('mousemove', onMouse, { passive: true });
+
+    interface Pt { x: number; y: number; vx: number; vy: number; r: number; }
+    const pts: Pt[] = Array.from({ length: 55 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      r:  Math.random() * 1.5 + 0.5,
+    }));
+
+    let raf: number;
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (const p of pts) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(79,195,247,0.55)';
+        ctx.fill();
+      }
+
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const d = Math.hypot(pts[i].x - pts[j].x, pts[i].y - pts[j].y);
+          if (d < 130) {
+            ctx.beginPath();
+            ctx.moveTo(pts[i].x, pts[i].y);
+            ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.strokeStyle = `rgba(79,195,247,${0.18 * (1 - d / 130)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+        const dm = Math.hypot(pts[i].x - mouseX, pts[i].y - mouseY);
+        if (dm < 160) {
+          ctx.beginPath();
+          ctx.moveTo(pts[i].x, pts[i].y);
+          ctx.lineTo(mouseX, mouseY);
+          ctx.strokeStyle = `rgba(79,195,247,${0.4 * (1 - dm / 160)})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+
+      raf = requestAnimationFrame(draw);
+    };
+    draw();
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('resize', resize);
+      window.removeEventListener('mousemove', onMouse);
+    };
+  }, []);
+
+  return <canvas ref={canvasRef} className="hero-particles" aria-hidden="true" />;
+};
+
 // ── Paste your Formspree form ID below ──────────────────
 const FORMSPREE_ID = 'xkovybqg';
 // ────────────────────────────────────────────────────────
@@ -154,6 +241,7 @@ const App: FC = () => {
 
       {/* ── Hero ───────────────────────────────────────── */}
       <main className="container-fluid d-flex flex-column justify-content-center align-items-center custom-height">
+        <ParticleCanvas />
         <div className="hero-parallax" ref={parallaxRef} aria-hidden="true">
           <div className="hero-orb hero-orb--1" />
           <div className="hero-orb hero-orb--2" />

@@ -118,7 +118,14 @@ section {
   color: var(--text);
   opacity: 0;
   transform: translateY(24px);
-  animation: fadeUp 0.7s cubic-bezier(0.4,0,0.2,1) 0.1s forwards;
+  animation:
+    fadeUp 0.7s cubic-bezier(0.4,0,0.2,1) 0.1s forwards,
+    name-glow 4s ease-in-out 1.5s infinite;
+}
+
+@keyframes name-glow {
+  0%, 100% { text-shadow: none; }
+  50%       { text-shadow: 0 0 40px rgba(79,195,247,0.3), 0 0 80px rgba(79,195,247,0.1); }
 }
 
 .header p {
@@ -815,6 +822,16 @@ section {
   box-shadow: none;
 }
 
+/* ── Particle canvas ─────────────────────────────────── */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* ── Parallax wrapper ─────────────────────────────────── */
 .hero-parallax {
   position: absolute;
@@ -878,6 +895,28 @@ section {
 .skills-container .skill-category:nth-child(2) { transition-delay: 0.15s; }
 .skills-container .skill-category:nth-child(3) { transition-delay: 0.25s; }
 
+/* ── Project card shine sweep on hover ───────────────── */
+.project-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(79,195,247,0.07) 50%,
+    transparent 60%
+  );
+  pointer-events: none;
+  transition: left 0.55s ease;
+}
+
+.project-card:hover::after {
+  left: 150%;
+}
+
 /* ── Project card accent inner glow on hover ─────────── */
 .project-card:hover {
   box-shadow: 0 16px 40px rgba(0,0,0,0.4),
@@ -928,9 +967,12 @@ section {
 
 /* ── Reduced motion overrides ────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .hero-parallax { display: none; }
+  .hero-parallax,
+  .hero-particles { display: none; }
   .hero-orb,
   .custom-height::after { animation: none; }
+  .header h1 { animation: fadeUp 0.7s cubic-bezier(0.4,0,0.2,1) 0.1s forwards; }
   .contact-form button[type='submit']:not(:disabled) { animation: none; }
   .section-label.reveal { letter-spacing: 0.18em; transition: opacity 0.6s ease, transform 0.6s ease; }
+  .project-card::after { display: none; }
 }
