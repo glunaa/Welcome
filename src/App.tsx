@@ -308,8 +308,8 @@ const App: FC = () => {
 
             <div className="project-card reveal">
               <h3>NetOps Simulator</h3>
-              <p>An interactive network operations simulator for practicing real-world networking scenarios, configurations, and troubleshooting workflows.</p>
-              <a href="https://github.com/glunaa/neteork-sim">View on GitHub</a>
+              <p>An AI-powered IT training platform built with React and Claude AI. Three simulation environments — each with its own UI, scoring system, and incident types — covering core roles a junior IT engineer encounters on day one.</p>
+              <a href="https://github.com/glunaa/network-sim">View on GitHub</a>
             </div>
 
           </div>
