@@ -306,6 +306,12 @@ const App: FC = () => {
               <a href="https://github.com/glunaa/AWS-Solutions">View on GitHub</a>
             </div>
 
+            <div className="project-card reveal">
+              <h3>NetOps Simulator</h3>
+              <p>An interactive network operations simulator for practicing real-world networking scenarios, configurations, and troubleshooting workflows.</p>
+              <a href="https://github.com/glunaa/neteork-sim">View on GitHub</a>
+            </div>
+
           </div>
         </div>
       </section>
