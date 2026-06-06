@@ -254,56 +254,60 @@ const App: FC = () => {
         </p>
 
         <div className="links-container d-flex justify-content-center">
-          <Links
-            className="col-md-6 col-lg-4 links"
-            url="https://github.com/glunaa"
-            icon={<BsGithub />}
-          />
-          <Links
-            className="col-md-6 col-lg-4 links"
-            url="https://linkedin.com/in/giovanni-luna-b85521255"
-            icon={<FaLinkedin />}
-          />
+          <Links url="https://github.com/glunaa"                        icon={<BsGithub />}    label="GitHub profile" />
+          <Links url="https://linkedin.com/in/giovanni-luna-b85521255" icon={<FaLinkedin />}  label="LinkedIn profile" />
         </div>
 
         <div className="scroll-cue">Scroll</div>
       </main>
 
       {/* ── Projects ───────────────────────────────────── */}
-      <section id="projects" className="projects-section py-5">
-        <div className="section-inner" style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 2rem' }}>
+      <section id="projects" className="projects-section">
+        <div className="section-inner">
           <span className="section-label reveal">Work</span>
           <h2 className="projects-title reveal">My Projects</h2>
           <div className="projects-grid">
 
             <div className="project-card reveal">
-              <h3>Welcome</h3>
+              <div className="project-card__head">
+                <h3>Welcome</h3>
+              </div>
               <p>Personal portfolio website built with React and TypeScript, showcasing my projects and skills.</p>
-              <a href="https://github.com/glunaa/Welcome">View on GitHub</a>
+              <a href="https://github.com/glunaa/Welcome" target="_blank" rel="noopener noreferrer">View on GitHub</a>
             </div>
 
             <div className="project-card reveal">
-              <h3>Catholic Verses</h3>
+              <div className="project-card__head">
+                <h3>Catholic Verses</h3>
+                <span className="project-badge">Live</span>
+              </div>
               <p>A web app for exploring and reflecting on Catholic scripture verses, built to make daily prayer and Bible reading more accessible.</p>
               <a href="https://catholicverses.netlify.app/" target="_blank" rel="noopener noreferrer">Visit Site</a>
             </div>
 
             <div className="project-card reveal">
-              <h3>NetCert Prep</h3>
+              <div className="project-card__head">
+                <h3>NetCert Prep</h3>
+                <span className="project-badge">Live</span>
+              </div>
               <p>A study tool for networking certification prep, covering key concepts, subnetting, and practice questions for CompTIA Network+ and CCNA.</p>
               <a href="https://netcertprep.netlify.app/" target="_blank" rel="noopener noreferrer">Visit Site</a>
             </div>
 
             <div className="project-card reveal">
-              <h3>Networking Showcase</h3>
+              <div className="project-card__head">
+                <h3>Networking Showcase</h3>
+              </div>
               <p>Documented VLSM subnetting walkthroughs, Active Directory configuration labs, and network topology diagrams.</p>
-              <a href="https://github.com/glunaa/Networking-Showcase">View on GitHub</a>
+              <a href="https://github.com/glunaa/Networking-Showcase" target="_blank" rel="noopener noreferrer">View on GitHub</a>
             </div>
 
             <div className="project-card reveal">
-              <h3>AWS Solutions</h3>
+              <div className="project-card__head">
+                <h3>AWS Solutions</h3>
+              </div>
               <p>Overview of core AWS services with real-world architecture patterns, IAM policies, and cloud deployment use cases.</p>
-              <a href="https://github.com/glunaa/AWS-Solutions">View on GitHub</a>
+              <a href="https://github.com/glunaa/AWS-Solutions" target="_blank" rel="noopener noreferrer">View on GitHub</a>
             </div>
 
             <div className="project-card reveal">
@@ -318,8 +322,9 @@ const App: FC = () => {
 
       {/* ── Skills ─────────────────────────────────────── */}
       <section id="skills" className="skills-section">
-        <span className="section-label reveal" style={{ maxWidth: '1100px', margin: '0 auto', display: 'block' }}>Expertise</span>
-        <h2 className="skills-title reveal" style={{ maxWidth: '1100px', margin: '0 auto 3rem', display: 'block' }}>Technical Skills</h2>
+        <div className="section-inner">
+        <span className="section-label reveal">Expertise</span>
+        <h2 className="skills-title reveal">Technical Skills</h2>
         <div className="skills-container">
 
           <div className="skill-category reveal">
@@ -352,12 +357,14 @@ const App: FC = () => {
           </div>
 
         </div>
+        </div>
       </section>
 
       {/* ── About ──────────────────────────────────────── */}
       <section id="about" className="about-section">
-        <span className="section-label reveal" style={{ maxWidth: '1100px', width: '100%' }}>Background</span>
-        <h2 className="reveal">About Me</h2>
+        <div className="section-inner">
+        <span className="section-label reveal">Background</span>
+        <h2 className="section-title reveal">About Me</h2>
         <div className="about-content reveal">
           <div className="about-text">
             <p>
@@ -407,17 +414,20 @@ const App: FC = () => {
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       {/* ── Contact ────────────────────────────────────── */}
       <section id="contact" className="contact-section">
-        <span className="section-label reveal" style={{ maxWidth: '600px', width: '100%' }}>Contact</span>
-        <h2 className="reveal">Get In Touch</h2>
+        <div className="section-inner section-inner--narrow">
+        <span className="section-label reveal">Contact</span>
+        <h2 className="section-title reveal">Get In Touch</h2>
         <p className="contact-sub reveal">Open to opportunities, collaborations, and conversations about tech.</p>
 
         <form ref={formRef} className="contact-form reveal" onSubmit={handleSubmit}>
-          <input type="email" name="email" placeholder="your@email.com" required />
-          <textarea name="message" placeholder="Your message..." required />
+          <input type="text"  name="name"    placeholder="Your name"       required />
+          <input type="email" name="email"   placeholder="your@email.com"  required />
+          <textarea           name="message" placeholder="Your message..."  required />
           <button type="submit" disabled={formStatus === 'sending'}>
             {formStatus === 'sending' ? 'Sending…' : 'Send Message'}
           </button>
@@ -432,6 +442,7 @@ const App: FC = () => {
             </p>
           )}
         </form>
+        </div>
       </section>
 
       <Footer />
