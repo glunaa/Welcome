@@ -683,6 +683,20 @@ section {
     align-self: stretch;
     text-align: center;
   }
+
+  /* On mobile, pull the terminal back into the flex flow */
+  .terminal-intro {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 1.5rem;
+    width: min(380px, 88vw);
+    max-height: 130px;
+  }
+
+  .gl-nav__links {
+    margin-right: 44px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -975,4 +989,180 @@ section {
   .contact-form button[type='submit']:not(:disabled) { animation: none; }
   .section-label.reveal { letter-spacing: 0.18em; transition: opacity 0.6s ease, transform 0.6s ease; }
   .project-card::after { display: none; }
+  .terminal-intro { animation: none; opacity: 1; }
+  .terminal-cursor { animation: none; }
+}
+
+/* ── Light theme ──────────────────────────────────────── */
+[data-theme="light"] {
+  --bg-0:      #f4f4f6;
+  --bg-1:      #eaeaed;
+  --bg-2:      #e0e1e5;
+  --bg-3:      #d4d5da;
+  --surface:   #c8c9cf;
+  --border:    rgba(0,0,0,0.09);
+  --border-hi: rgba(0,0,0,0.18);
+  --text:      #0d0d12;
+  --muted:     #50505f;
+  --accent:    #0277bd;
+  --accent-dim:#dbeffe;
+}
+
+[data-theme="light"] .gl-nav {
+  background: rgba(244,244,246,0.88);
+}
+
+[data-theme="light"] .project-card:hover {
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12),
+              0 0 30px rgba(2,119,189,0.06),
+              inset 0 1px 0 rgba(2,119,189,0.1);
+}
+
+[data-theme="light"] .project-card::before {
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+[data-theme="light"] .custom-height::after {
+  background: radial-gradient(circle, rgba(2,119,189,0.06) 0%, transparent 70%);
+}
+
+/* ── Theme toggle ─────────────────────────────────────── */
+.theme-toggle {
+  position: fixed;
+  top: 0.75rem;
+  right: 1rem;
+  z-index: 300;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 1.05rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background var(--transition), border-color var(--transition),
+              box-shadow var(--transition);
+  will-change: transform;
+}
+
+.theme-toggle:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(79,195,247,0.12);
+}
+
+.theme-toggle--flipping {
+  animation: toggle-flip 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes toggle-flip {
+  0%   { transform: scale(1)   rotate(0deg);   }
+  40%  { transform: scale(0.5) rotate(200deg); }
+  100% { transform: scale(1)   rotate(360deg); }
+}
+
+/* Give nav links breathing room on the right for the toggle */
+.gl-nav__links {
+  margin-right: 48px;
+}
+
+/* ── Terminal intro ───────────────────────────────────── */
+.terminal-intro {
+  position: absolute;
+  bottom: 5.5rem;
+  right: 3rem;
+  z-index: 0;
+  margin-top: 0;
+  width: min(390px, 38vw);
+  background: rgba(8,8,10,0.88);
+  border: 1px solid rgba(79,195,247,0.18);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  animation: fadeUp 0.7s cubic-bezier(0.4,0,0.2,1) 0.65s forwards;
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.55rem 1rem;
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(79,195,247,0.08);
+}
+
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.terminal-dot--red    { background: #ff5f56; }
+.terminal-dot--yellow { background: #ffbd2e; }
+.terminal-dot--green  { background: #27c93f; }
+
+.terminal-title {
+  flex: 1;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.35);
+  margin-left: -22px;
+}
+
+.terminal-body {
+  padding: 0.9rem 1rem;
+  max-height: 148px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.terminal-body::-webkit-scrollbar { display: none; }
+
+.terminal-line {
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  line-height: 1.65;
+  white-space: pre;
+}
+
+.terminal-line--cmd { color: #4fc3f7; }
+
+.terminal-line--out { color: rgba(255,255,255,0.55); }
+
+.terminal-prompt {
+  color: #27c93f;
+  font-weight: 700;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 7px;
+  height: 13px;
+  background: #4fc3f7;
+  vertical-align: middle;
+  margin-left: 1px;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+/* ── Spotlight card glow ──────────────────────────────── */
+.project-card.spotlight-active {
+  background-image: radial-gradient(
+    circle at var(--sl-x, 50%) var(--sl-y, 50%),
+    rgba(79,195,247,0.09) 0%,
+    transparent 65%
+  );
+}
+
+[data-theme="light"] .project-card.spotlight-active {
+  background-image: radial-gradient(
+    circle at var(--sl-x, 50%) var(--sl-y, 50%),
+    rgba(2,119,189,0.08) 0%,
+    transparent 65%
+  );
 }
