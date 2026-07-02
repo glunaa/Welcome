@@ -3,17 +3,15 @@ import React, { FC } from 'react';
 interface LinksProps {
   url: string;
   icon: React.ReactNode;
-  className?: string;
+  label: string;
 }
 
-const Links: FC<LinksProps> = ({ url, icon }) => {
-  return (
-    <div className="text-center links">
-      <a href={url} className="btn" target="_blank" rel="noopener noreferrer">
-        {icon}
-      </a>
-    </div>
-  );
-};
+const Links: FC<LinksProps> = ({ url, icon, label }) => (
+  <div className="links">
+    <a href={url} className="btn" aria-label={label} target="_blank" rel="noopener noreferrer">
+      {icon}
+    </a>
+  </div>
+);
 
 export default Links;
