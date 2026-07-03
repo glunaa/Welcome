@@ -73,6 +73,7 @@ section {
 /* ── Hero ─────────────────────────────────────────────── */
 .custom-height {
   min-height: 100vh;
+  min-height: 100svh; /* stable height on mobile browsers with collapsing URL bars */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -702,6 +703,11 @@ section {
     text-align: center;
   }
 
+}
+
+/* Stack the terminal beneath the text before the columns get narrow
+   enough to clip its pre-formatted output */
+@media (max-width: 992px) {
   .terminal-section__inner {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -709,10 +715,6 @@ section {
 
   .terminal-section .terminal-intro {
     max-width: 100%;
-  }
-
-  .gl-nav__links {
-    margin-right: 44px;
   }
 }
 
@@ -1114,7 +1116,9 @@ section {
 }
 
 .terminal-section .terminal-body {
-  max-height: 200px;
+  /* tall enough for the full whoami + tracert sequence without clipping */
+  max-height: 270px;
+  min-height: 270px;
 }
 
 /* ── Terminal intro ───────────────────────────────────── */
@@ -1159,6 +1163,7 @@ section {
   padding: 0.9rem 1rem;
   max-height: 148px;
   overflow-y: auto;
+  overflow-x: auto; /* pre-formatted lines scroll instead of breaking layout on narrow screens */
   scrollbar-width: none;
 }
 
@@ -1205,4 +1210,55 @@ section {
     rgba(2,119,189,0.08) 0%,
     transparent 65%
   );
+}
+
+/* ── Mobile refinements ───────────────────────────────── */
+@media (max-width: 768px) {
+  /* heavy-blur orbs cost GPU on phones and parallax needs a pointer */
+  .hero-parallax { display: none; }
+
+  .section-title,
+  .projects-title,
+  .skills-title {
+    margin-bottom: 2rem;
+  }
+
+  .terminal-section {
+    padding: 4rem 1.25rem;
+  }
+
+  .terminal-section__desc {
+    max-width: 100%;
+  }
+
+  /* single-column layout: cumulative stagger delays feel laggy */
+  .projects-grid .project-card:nth-child(n),
+  .skills-container .skill-category:nth-child(n) {
+    transition-delay: 0s;
+  }
+
+  /* sub-16px inputs trigger auto-zoom on iOS focus */
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 16px;
+  }
+
+  .theme-toggle {
+    width: 34px;
+    height: 34px;
+    top: 11px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section { padding: 3.5rem 1rem; }
+
+  .project-card { padding: 1.5rem; }
+
+  .about-text p { font-size: 0.98rem; }
+
+  .terminal-line { font-size: 0.72rem; }
+
+  .scroll-cue { bottom: 1.25rem; }
 }

@@ -218,10 +218,12 @@ const App: FC = () => {
       <section className="terminal-section">
         <div className="section-inner terminal-section__inner">
           <div className="terminal-section__text reveal">
-            <span className="section-label">System</span>
-            <h2 className="section-title">Quick Recon</h2>
+            <span className="section-label">Overview</span>
+            <h2 className="section-title">At a Glance</h2>
             <p className="terminal-section__desc">
-              A peek at who's behind the keyboard — queried straight from the command line.
+              I build modern web interfaces and back them with hands-on
+              networking experience — from React and TypeScript on the front
+              end to routing, subnetting, and diagnostics underneath.
             </p>
           </div>
           <div className="terminal-section__window reveal">
